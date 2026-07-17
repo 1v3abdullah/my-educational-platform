@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء حساب جديد</title>
+    <style>
+        body {font-family: Times new roman; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; font-weight: bold}
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; height:100%; text-align: center; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 96%; padding: 10px; background: #2ecc70; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .msg { margin-top: 15px; font-weight: bold; }
+        .btn {font-size: 24px}
+        .login-link { display: block; margin-top: 15px; color: #2ecc70; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>إنشاء حساب جديد</h1>
+    
+    <!-- الـ Form يرسل البيانات عبر طريقة POST إلى مسار التسجيل بالسيرفر -->
+<form method="POST">
+        <input type="text" name="username" placeholder="اختر اسم المستخدم" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <input type="password" name="password" placeholder="اختر كلمة المرور" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <input type="text" name="name" placeholder="أدخل اسمك" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <input type="date" name= "birthday" placeholder = "أدخل تاريخ ميلادك" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <p> من أنت؟</p>
+        <input type="radio" id ="male" name="gender" value="male" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <label for="male">ذكر</label>
+        <input type="radio" id ="female" name="gender" value="female" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <label for="female">أنثى</label>
+        <input type="radio" id ="prefer not to say" name="gender" value="prefer not to say" required oninvalid="this.setCustomValidity('الرجاء ملء الحقول المطلوبة')" oninput="this.setCustomValidity('')">
+        <label for="prefer not to say" style=": 20px;">أفضل عدم الرد</label>
+        <button type="submit" class="btn"><b>إنشاء حساب</b></button>
+</form>
+
+
+    <!-- ربط ديناميكي للعودة لصفحة تسجيل الدخول بعد إتمام العملية -->
+    <a href="{{ url_for('login') }}" class="login-link" style="font-size: 26px; margin-top: 30px">لديك حساب بالفعل؟ سجل دخولك</a>
+
+{% if message %}
+    <div class="msg">{{ message | safe }}</div>
+{% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+/* 1. إعادة ضبط مصنع المتصفح وتأمين مساحات الشاشة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* إنزال محتويات الصفحة بالكامل لمنع الاختفاء تحت الشريط الثابت */
+body {
+    padding-top: 90px;   /*  كل الكلمات والصور في الموقع ستنزل معاً بمقدار 90 بكسل  */
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* مرحلة حجز وتلوين الممر العلوي للموقع */
+.navbar {
+    background-color: hsl(120, 89%, 39%); /* خلفية خضراء هي لون الشريط */
+    width: 100%;               /* يمتد الممر على كامل عرض الشاشة من اليمين لليسار */
+    padding: 50px 0;           /* نعطي الممر حشواً داخلياً (20 بكسل فوق وتحت) ليصبح واسعاً ومريحاً */
+    position: fixed;           /* تجميد الشريط ومنعه من الصعود مع السكرول */
+    top: 0;                    /* لصق الشريط في النقطة الصفرية بأعلى الشاشة تماماً */
+    right: 0;                  /* تأمين التثبيت من جهة اليمين المتوافقة مع اتجاه RTL */
+    z-index: 1000;             /* درع حماية الطبقات: إجبار الشريط الأخضر على الطيران فوق كل النصوص والصور دائماً */
+}
+
+
+
+
+
+
+
+
+/*  مرحلة تحويل الكلمات إلى صف أفقي وتوزيعها */
+.nav-links {
+    display: flex;         /*  إجبار الكلمات الأربعة على الارتصاف في صف أفقي واحد */
+    justify-content: space-around; /* توزيع الكلمات الأربعة بمسافات متساوية ومتوازنة على عرض الشاشة */
+    list-style: none;     /* إزالة النقاط السوداء الافتراضية تماماً */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  مرحلة التحكم في حجم الكلمات ومظهرها */
+.nav-links li a {
+    font-size: 29px;       /* هذا هو السطر الحتمي لتكبير الخط بقيمة 29 بكسل صريحة */
+    color: #ffffff;        /* تحويل لون الكلمات إلى اللون الأبيض  */
+    text-decoration: none; /* إزالة الخط الافتراضي المزعج المتواجد أسفل الكلمات */
+    font-weight: bold;     /* جعل الخط عريضاً وجريئاً ليعكس قوة العنوان */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 1. حاوية تنظيم النصوص (تمنع الكلام من الالتصاق بحواف الشاشة) */
+.container {
+    max-width: 900px;     /* جعل عرض النص مناسباً ومريحاً للعين أثناء القراءة */
+    margin: 0 auto;       /* جعل صناديق النصوص تتوسط الشاشة تماماً دائماً */
+    padding: 0 20px;      /* هامش حماية داخلي يمنع الحروف من لمس أطراف شاشة الموبايل */
+    animation: fade_in_up 1s  ease-out forwards;
+}
+
+/*  تأمين حاوية الترحيب ودفعها لأسفل الشريط الثابت */
+.welcome-section {
+    position: relative;
+    padding-top: 120px;   /* دفع الفقرة الأولى 120 بكسل للأسفل لتظهر كاملاً تحت الشريط الأخضر النظيف */
+    padding-bottom: 50px;
+    animation: fade_in_up 1s  ease-out forwards;
+}
+
+
+/*  3. جعل العناوين الفرعية ضخمة جداً وفي منتصف الشاشة بالضبط */
+.main-title {
+    color: #000000;           /* لون أسود */
+    font-size: 58px;          /* تكبير حجم العناوين لدرجة ضخمة */
+    text-align: center;       /* جعل العنوان في منتصف الصفحة بالضبط */
+    margin-bottom: 175px;      /* هامش سفلي واسع يفصل العنوان عن الشرح الذي تحته */
+    margin-top: 175px;
+    font-weight: bold;        /* خط عريض */
+    line-height: 1.4;
+    animation: fade_in_up 1s  ease-out forwards;
+}
+
+/*  4. ضبط محاذاة أسطر الشرح والعلوم في المنتصف تماماً */
+.welcome-text, .purpose-text, .content-text {
+    font-size: 22px;          /* حجم خط واضح ومريح جداً للقراءة */
+    color: #000000;           /* لون أسود للنص  */
+    text-align: center;       /* (align) لتصبح في السنتر والمنتصف تماماً */
+    line-height: 2;         /* تباعد أسطر  */
+    margin-bottom: 20px;      /* مسافة تفصل الفقرات عن بعضها */
+    animation: fade_in_up 1s  ease-out forwards;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* تثبيت شخصيتي في الأماكن المحددة دون مساس بالنصوص */
+.character-img {
+    position: absolute;    /*  تحرير الصورة من تدفق الصفحة وجعلها تطير فوق الكائنات */
+    left: -275px;            /*  دفع وتثبيت الصورة في أقصى يسار الشاشة على بعد 275 بكسل من الحافة */
+    top: -250px;            /* التحكم في ارتفاع الصورة من الأعلى لتوازي الفقرة الأولى */
+    max-width: 460px;      /* حجم الصورة */
+    height: auto;
+    border-radius: 20px;
+    animation: character 1s  ease-out forwards;
+}
+
+
+
+
+
+.character-img2 {
+    position: absolute;    
+    right: -200px;            
+    top: -400px;            
+    max-width: 460px;      
+    height: auto;
+    border-radius: 20px;
+    animation: character 1s  ease-out forwards;
+}
+
+
+
+
+
+.character-img3 {
+    position: absolute;   
+    left: -275px;           
+    top: -300px;            
+    max-width: 460px;      
+    height: auto;
+    border-radius: 20px;
+    animation: character 1s  ease-out forwards;
+}
+
+
+
+
+
+
+    /*  1. حاوية الزر للتأكد من تمركزه في منتصف الشاشة بالضبط */
+.cta-button-container {
+    text-align: center;       /* إجبار الزر على الاستقرار في السنتر المركزي تماماً */
+    margin-top: 30px;         /* مسافة أمان تفصل الزر عن النص التشجيعي الذي فوقه */
+    animation: fade_in_up 1s  ease-out forwards;
+}
+.last_btn{
+/*  2. هندسة وصقل المستطيل الأخضر منحني الحواف */
+
+    display: inline-block;    /* تحويل الرابط إلى كتلة مرنة تسمح بامتصاص الأبعاد والحشوات */
+    background-color: #d31c1c; /* مستطيل أخضر زاهي يطابق الهوية البصرية لشريطك العلوي */
+    color: #ffffff !important; /* جعل النص أبيض*/
+    font-size: 32px;          /* حجم خط كبير*/
+    font-weight: bold;        /* جعل الخط عريضاً */
+    text-decoration: none;    /* إزالة الخط الافتراضي المزعج من أسفل الكلمة نهائياً */
+    
+    /*  صناعة أبعاد المستطيل والمنحنيات */
+    padding: 25px 45px;       /* تمديد حشوي داخلي (25 بكسل فوق وتحت، و45 بكسل يمين ويسار) لصناعة هيكل المستطيل */
+    border-radius: 17px;      /*  المطلوب: انحناء للحواف  */
+    
+    /*  بروتوكولات الحركة والظل والتفاعل */
+    box-shadow: 0 5px 15px rgba(204, 46, 46, 0.3); /* ظل أخضر تحت الزر  */
+    transition: all 0.3s ease; /* تفعيل حركة بمجرد لمس الزر*/
+    cursor: pointer;          /* تحويل مؤشر الماوس ليد إصبعية تنبئ عن قابلية الضغط */
+    transition: transform 0.7s ease-out;
+}
+
+
+
+
+/*  الذكاء التفاعلي الحركي للزر عند مرور الماوس  */
+.last_btn:hover { 
+    box-shadow: 0 8px 20px rgba(204, 46, 46, 0.5); 
+    transform: scale(1.05);
+    
+}
+
+
+
+
+
+.fade-element {
+  opacity: 0;
+  transform: translateY(45px);
+}
+
+.fade-element.start-animation {
+  animation: fade_in_up 1s ease-out forwards;
+}
+
+
+
+
+
+@keyframes fade_in_up {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes character {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+
+
+.copy-right{
+    width: 100%;
+    border-top: 1px solid #000000;
+    padding: 25px;
+
+}
+
+
+.container{
+    font-size: 23px;
+    text-align: center;
+}
+
+
+.copy-right .eng-text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

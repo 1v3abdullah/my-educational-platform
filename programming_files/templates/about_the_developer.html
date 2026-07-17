@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل العلوم</title>
+    <!-- ربط ملف التنسيق CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='about_the_developer.css') }}">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي للموقع -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home_page') }}"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="{{ url_for('categories') }}"><b>الأقسام</b></a></li>
+                <li><a href="{{ url_for('about_the_developer') }}" class="active"><b>عن المطور</b></a></li>
+                <li><a href="{{ url_for('profile') }}"><b>الملف الشخصي</b></a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- مقدمة المقالة-->
+    <header class="welcome-section fade-element">
+        <div class="container">
+            <h1 class="main-title fade-element">أهلا بك في هذه المقالة التي تتحدث عني!</h1>
+            
+            <p class="welcome-text fade-element">
+               <b> يشرفني وجودك هنا! ، هل أنت مهتم فعلا بقراءة سيرتي و تريد معرفة قصتي قبل أن آتي هنا؟ ، حسنا،  على الرغم من أنني لا أملك جو السرد و القصص لكن بما أنك أتيت فسأخبرك من أنا بالضبط!</b>
+            </p>
+            <p class="welcome-text fade-element">
+               أولا: دعني أعرفك عن نفسي، أنا عبد الله، أبلغ من العمر <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:normal;">16</span> عاما ، و أنتمي لجمهورية مصر العربية مع أصول من المملكة العربية السعودية
+            </p>
+        </div>
+        <div class="container">
+            <h2 class="main-title fade-element">من أنا بالضبط؟</h2>
+            <p class="purpose-text fade-element">
+               <b> أنا شخص منذ أن أتيت إلى هذه الحياة و أنا لا أعرف ما هي فائدتي و فائدة وجودي فيها أصلا، منذ من أن وُجِدْتُ و أنا لا أعرف شيئا اسمه "شغف" إلا بالكمبيوتر و هذه الأجهزة و التكنولوجيا المتطورة ، لكن على الرغم من كوني شخصا "جذابا" من الخارج إلا أنني كنت آنها شخصا غبيا تستطيع أن تشتمني بأي شيء تريده و أن تطلق علي من الألقاب السسئة ما شئت ، لم أكن أفعل شيئا في حياتي سوى تضييع وقتي على ألعاب الفيديو التافهة و السخيفة و الفيديوهات التي لا تسمن و لا تغني من جوع ، كنت أنا الشخص الذي يسبب المشاكل و دائما أكون "لب مشاكل" من حولي من أهل و أقارب بسبب أسباب حمقاء ، لكن بصراحة أنا نادم على كل ما فعلته إلى الآن ، و ما زالت لحظات تأنيب الضمير تلازمني على كل وقت ضيعت فيه نفسي و عصيت فيه ربي ، الحمد لله الذي من علي بالتوبة من كل هذا</b>
+            </p>
+        </div>
+        <div class="container">
+            <p class="content-text fade-element">
+               <b> <br> <br> <br>الحمد لله أنني قد تخلصت من كل هذا ؛ فمنذ أن بدأت برحلتي في صناعة المحتوى و البرمجة و تلك المهارات التي أحبها و التي كنت أريد تعلمها بشدة ، أصبحت شخصا آخر تماما ، شخص يعرف أن لديه "قيمة" و "كرامة" ، و مثل هذه اللازمات التي تجعلني شخصا سويا لم أعد أقبل بأن يمسها أحد بسوء ، أنا الآن و لله الحمد أعرف جيدا أنني شخص له وزن داخل المحيط الذي يحيط به ، و ينقصه فقط أن يسستغل هذه القيمة و هذا التأثير في الخير! ، و ها أنا.. شخص لديه قصص بعضها مؤلم و بعضها الآخر مضحك و الباقي.. أي شيء ، لكن المهم هو أن أتعلم من أخطائي و أن ألتقط الدروس الثمينة من كل موقف أو قصة تحدث لي أو من مع غيري<br> <br> قمت ببرمجة هذه المنصة البسيطة حتى ألحقها مع أعمالي الأخرى و التي أبرزها قناتي على اليوتيوب و التي أقدم فيها أي شيء يداعب فضولي سواء كانت مواضيع علمية أو غيرها ،  لكنني أركز بشكل أساسي على المواضيع العلمية ، ألحق المواضيع التي أتحدث عنها هنا ، و أصنع أدوات تفاعلية حتى تستمتعوا بأفضل تجربة لموقعي ، و نعم.. هذا الموقع برمجته بنفسي و لم يساعدني عليه أحد بعد الله!</b>
+            </p>
+        </div>
+        <div class="container">
+            <h2 class="cta-title fade-element">هل أعجبتك اللمحة عني و تريد استكشاف المزيد؟</h2>
+            <p class="cta-text fade-element"><b>بإمكانك الدخول إلى قناتي من هنا لتكتشف ما أقدمه هناك</b></p>
+            <div class="cta-button-container fade-element">
+                <a href="https://www.youtube.com/@1v3abdullah" target="_blank" class="last_btn btn-primary"><b>قناتي على اليوتيوب</b>
+                <img src="{{ url_for('static', filename='youtube.png') }}" alt="yt">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- بداية اللمحة-->
+    <section id="sections" class="purpose-section fade-element">
+
+    </section>
+
+    <!-- قسم المحتوى -->
+    <section class="content-section fade-element">
+
+    </section>
+
+    <!-- منطقة الدعوة لاتخاذ إجراء -->
+    <section class="main-title fade-element">
+
+    </section>
+
+
+    <section class="copy-right"> 
+        <div class = "container"> 
+        <p> 
+            <span class="eng-text"> © 2026 </span>
+            <b>جميع الحقوق محفوظة  <br> تم تطوير هذا الموقع بواسطة </b>
+            <span class="eng-text"> @1v3abdullah</span>
+        
+        </p>
+        </div>
+    </section>
+
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="animation.js"></script>
+</body>
+</html>

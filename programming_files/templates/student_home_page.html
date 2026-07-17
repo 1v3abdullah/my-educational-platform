@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل العلوم</title>
+    <!-- ربط ملف التنسيق CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='student_home_page.css') }}">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي للموقع -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('student_home_page') }}" class="active"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="{{ url_for('categories') }}"><b>الأقسام</b></a></li>
+                <li><a href="{{ url_for('about_the_developer2') }}"><b>عن المطور</b></a></li>
+                <li><a href="{{ url_for('student_profile') }}"><b>الملف الشخصي</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="welcome-section">
+    <h1> مرحبا يا <span id="student-name-span" style="font-family: 'Times New Roman', serif; font-weight: normal">{{ student_name }}</span> ، هل تريد تعلم شيء جديد اليوم؟</h1>
+<!-- 1. بطاقة عدد الكورسات -->
+<div class="stat-card-horizontal" style="position: relative; left: 350px; margin-top: 150px;">
+    <h3 class="stat-title">عدد الكورسات المشترك بها:</h3>
+    <div class="stat-number-large" id="courses-count" data-target="10">0</div> <!-- الـ id هنا فريد -->
+</div>
+
+<!-- 2. بطاقة عدد ساعات التعلم -->
+<div class="stat-card-horizontal" style="position: relative; right: 350px; margin-top: 150px;">
+    <h3 class="stat-title">عدد ساعات التعلم:</h3>
+    <div class="stat-number-large" id="hours-count" data-target="120">0</div> <!-- 🛠️ تعديل الـ id والـ target كمثال -->
+</div>
+
+<!-- 3. بطاقة عدد الكورسات المكتملة -->
+<div class="stat-card-horizontal" style="position: relative; left: 350px; margin-top: 150px;">
+    <h3 class="stat-title">عدد الكورسات المكتملة:</h3>
+    <div class="stat-number-large" id="completed-count" data-target="4">0</div> <!-- 🛠️ تعديل الـ id والـ target كمثال -->
+</div>
+
+
+
+<h2 style="max-width: 1100px; margin: 50px auto 10px auto; padding: 100px 0px 70px 0px; color: #000000; font-size: 70px"> كورساتك الحالية</h2>
+
+<div class="courses-grid">
+    
+    <!-- الكورس الأول: نسبة تقدم 70% -->
+    <div class="course-card">
+        <h3 class="course-title">كورس أساسيات البرمجة ببايثون</h3>
+        <div class="progress-info">
+            <span style="font-size:25px;"><b>نسبة الإنجاز</b></span>
+            <!-- 🛠️ تم إضافة فئة percent-count وهدف العداد 70 وتصفير الرقم مبدئياً للأنميشن -->
+            <span class="percent-count" data-target="70" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: normal; font-size:25px">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+            <!-- 🛠️ تم تصفير العرض المباشر (width: 0%) ليمتد الشريط بروعة عبر JavaScript -->
+            <div class="progress-bar-fill" style="width: 0%; "></div>
+        </div>
+    </div>
+
+    <!-- الكورس الثاني: نسبة تقدم 45% -->
+    <div class="course-card">
+        <h3 class="course-title">تصميم واجهات المستخدم بحرفية</h3>
+        <div class="progress-info">
+            <span style="font-size:25px;"><b>نسبة الإنجاز</b></span>
+            <!-- 🛠️ تم إضافة فئة percent-count وهدف العداد 45 وتصفير الرقم مبدئياً للأنميشن -->
+            <span class="percent-count" data-target="45" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: normal; font-size:25px">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+    </div>
+
+    <!-- الكورس الثالث: نسبة تقدم 90% -->
+    <div class="course-card">
+        <h3 class="course-title">بناء قواعد البيانات الجغرافية</h3>
+        <div class="progress-info">
+            <span style="font-size:25px;"><b>نسبة الإنجاز</b></span>
+            <!-- 🛠️ تم إضافة فئة percent-count وهدف العداد 90 وتصفير الرقم مبدئياً للأنميشن -->
+            <span class="percent-count" data-target="90" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: normal; font-size:25px">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+    </div>
+</div>
+
+
+<h2 style="max-width: 1100px; margin: 80px auto 10px auto; padding: 0 20px; color: #000000; font-size: 50px ; margin-top: 200px; margin-bottom:77px;"> تابع من حيث توقفت</h2>
+
+<div style="max-width: 1100px; margin: 20px auto; padding: 0 20px;">
+    <div class="resume-card">
+        
+        <!-- تفاصيل الكورس والدرس يميناً -->
+        <div style="flex: 1; text-align: right;">
+            <h3 style="font-size: 28px; margin: 0 0 8px 0; color: #2c3e50;">كورس أساسيات البرمجة ببايثون</h3>
+            <p style="font-size: 18px; color: #7f8c8d; margin: 0 0 20px 0;"><b>الدرس الحالي</b>: <span style="color: #3498db; font-weight: bold;">مفهوم الحلقات التكرارية (Loops)</span></p>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; max-width: 500px;">
+                <span style="font-size: 18px; color: #000000;"><b>تقدمك في الكورس</b></span>
+                <!-- فئة percent-count مكررة ليعمل عليها الأنميشن الذكي تلقائياً والهدف 70 -->
+                <span class="percent-count" data-target="70" style="font-family: 'Segoe UI', sans-serif; font-size: 20px; color: #3498db;">0%</span>
+            </div>
+            <div class="progress-bar-bg2">
+                <div class="progress-bar-fill2"></div>
+            </div>
+
+        </div>
+
+        <!-- زر الانتقال الفوري يساراً -->
+        <div>
+            <button class="resume-btn">أكمل التعلم الآن</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+
+<h2 style="max-width: 1100px; margin: 80px auto 10px auto; padding: 0 20px; color: #000000; font-size: 40px">المهام والواجبات المطلوبة</h2>
+
+<div class="todo-container">
+    <div class="todo-card">
+        
+        <!-- المهمة الأولى -->
+        <div class="todo-item" onclick="toggleTodo(this)">
+            <div style="display: flex; align-items: center;">
+                <span class="todo-checkbox"></span>
+                <span class="todo-text"><b>حل اختبار أساسيات لغة بايثون (تطبيق على Loops)</b></span>
+            </div>
+            <span class="todo-date">غداً، 12:00 م</span>
+        </div>
+
+        <!-- المهمة الثانية -->
+        <div class="todo-item" onclick="toggleTodo(this)">
+            <div style="display: flex; align-items: center;">
+                <span class="todo-checkbox"></span>
+                <span class="todo-text"><b>تسليم مشروع واجهة متجر عطور الإلكتروني (Figma)</b></span>
+            </div>
+            <span class="todo-date">بعد غد، 08:00 م</span>
+        </div>
+
+        <!-- المهمة الثالث -->
+        <div class="todo-item" onclick="toggleTodo(this)">
+            <div style="display: flex; align-items: center;">
+                <span class="todo-checkbox"></span>
+                <span class="todo-text"><b>مشاهدة محاضرة ربط الجداول بقاعدة البيانات الجغرافية</b></span>
+            </div>
+            <span class="todo-date">18 يوليو</span>
+        </div>
+
+    </div>
+</div>
+
+
+    <section class="copy-right"> 
+        <div class = "container"> 
+        <p> 
+            <span class="eng-text"> © 2026 </span>
+            <b>جميع الحقوق محفوظة  <br> تم تطوير هذا الموقع بواسطة </b>
+            <span class="eng-text"> @1v3abdullah</span>
+        
+        </p>
+        </div>
+    </section>
+
+
+
+
+
+
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // ==========================================
+        // 1. كود فحص لغة الاسم الحالي (دون أي تغيير أو حذف)
+        // ==========================================
+        const nameElement = document.getElementById('student-name-span');
+        if (nameElement) {
+            const nameText = nameElement.textContent;
+            
+            // 🔎 فحص ما إذا كان الاسم يحتوي على حروف إنجليزية (A-Z أو a-z)
+            const hasEnglish = /[a-zA-Z]/.test(nameText);
+            
+            if (hasEnglish) {
+                // 🛠️ إذا كان إنجليزي، حول الخط فوراً إلى Segoe UI
+                nameElement.style.fontFamily = "'Segoe UI', Tahoma, sans-serif";
+            }
+        }
+
+        // ==========================================
+        // 2. الأداة الجديدة: العداد التفاعلي الذكي المرتبط بالـ Scroll
+        // ==========================================
+        // قائمة بالـ id الخاصة بالبطاقات الثلاث
+        const targetIds = ['courses-count', 'hours-count', 'completed-count'];
+
+        // إعدادات مراقبة الشاشة (Intersection Observer)
+        const observerOptions = {
+            root: null, // تتبع شاشة المتصفح الرئيسية
+            threshold: 0.2 // يبدأ الأنميشن عندما يظهر 20% من البطاقة أمام المستخدم
+        };
+
+        const countObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // إذا وصل المستخدم للبطاقة أثناء تصفحه للموقع
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target'); // جلب الرقم المطلوب للبطاقة
+                    const duration = 1000; // سرعة الأنميشن بالكامل (ثانية واحدة)
+                    const startTime = performance.now();
+
+                    function updateCount(currentTime) {
+                        const elapsedTime = currentTime - startTime;
+                        const progress = Math.min(elapsedTime / duration, 1); // نسبة التقدم من 0 إلى 1
+                        
+                        // حساب تصاعد الأرقام التفاعلي
+                        const currentCount = Math.floor(progress * target);
+                        counter.textContent = currentCount;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCount); // استمرار العداد بسرعة خاطفة
+                        } else {
+                            counter.textContent = target; // الثبات النهائي عند الرقم المطلوب بدقة
+                        }
+                    }
+
+                    // [تم التعديل] تشغيل حركة العداد هنا فقط عند وصول السكرول للبطاقة
+                    requestAnimationFrame(updateCount);
+                    
+                    // إيقاف مراقبة هذه البطاقة لكي لا يتكرر الأنميشن عند كل سكرول صعوداً وهبوطاً
+                    observer.unobserve(counter); 
+                }
+            });
+        }, observerOptions);
+
+        // تفعيل أداة المراقبة الذكية لتبدأ بفحص مكاني للبطاقات الثلاث بدلاً من التشغيل الفوري
+        targetIds.forEach(id => {
+            const counter = document.getElementById(id);
+            if (counter) {
+                countObserver.observe(counter);
+            }
+        });
+    });
+                // ==========================================
+        // 3. أداة أنميشن أشرطة التقدم والعدادات المئوية التزامنية (النسخة المطورة لـ fill2)
+        // ==========================================
+        const percentCounters = document.querySelectorAll('.percent-count');
+
+        const progressObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const targetValue = +counter.getAttribute('data-target');
+                    
+                    // 🎯 العثور على البطاقة سواء كانت خضراء (course-card) أو زرقاء (resume-card)
+                    const card = counter.closest('.course-card, .resume-card');
+                    if (card) {
+                        // 🛠️ الفحص الذكي: إذا كانت البطاقة لتابع من حيث توقفت، ابحث عن fill2 وإلا ابحث عن fill العادي
+                        let progressBar;
+                        if (card.classList.contains('resume-card')) {
+                            progressBar = card.querySelector('.progress-bar-fill2');
+                        } else {
+                            progressBar = card.querySelector('.progress-bar-fill');
+                        }
+                        
+                        // تمويد وتمديد الشريط المكتشف بالنسبة المئوية الصحيحة
+                        if (progressBar) {
+                            progressBar.style.width = targetValue + '%'; 
+                        }
+                    }
+
+                    // حركة العداد التصاعدي المئوي المتزامن مع زحف الشريط
+                    const duration = 1000; // ثانية واحدة
+                    const startTime = performance.now();
+
+                    function animatePercent(currentTime) {
+                        const elapsedTime = currentTime - startTime;
+                        const progress = Math.min(elapsedTime / duration, 1);
+                        const currentPercent = Math.floor(progress * targetValue);
+                        
+                        counter.textContent = currentPercent + '%';
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animatePercent);
+                        } else {
+                            counter.textContent = targetValue + '%';
+                        }
+                    }
+
+                    requestAnimationFrame(animatePercent);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { root: null, threshold: 0.1 });
+
+        // بدء تفعيل جدار الاستشعار المئوي لبطاقات الكورسات الحالية وتابع من حيث توقفت
+        percentCounters.forEach(counter => progressObserver.observe(counter));
+    // 🛠️ دالة تشطيب المهام التفاعلية عند النقر
+    function toggleTodo(element) {
+        element.classList.toggle('completed');
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل العلوم</title>
+    <!-- ربط ملف التنسيق CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي للموقع -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home_page') }}" class="active"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="{{ url_for('categories') }}"><b>الأقسام</b></a></li>
+                <li><a href="{{ url_for('about_the_developer') }}"><b>عن المطور</b></a></li>
+                <li><a href="{{ url_for('profile') }}"><b>الملف الشخصي</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- منطقة الاستقبال والترحيب -->
+    <header class="welcome-section fade-element">
+        <div class="container">
+            <h1 class="main-title fade-element">هنا نكسر أصنام التلقين.. ونبرمج العلوم!</h1>
+            
+            <p class="welcome-text fade-element">
+               <b> مرحباً بك هنا، هذا الموقع لم يُصنع لمن يبحث عن الحفظ الجاف أو البصم، بل صُنع خصيصاً لأولئك الذين يمتلكون الشجاعة لتفكيك الكون وفهمه باللوجيك والبيانات الصلبة.</b>
+            </p>
+            <p class="welcome-text fade-element">
+               <b> نحن لا ندرس الفيزياء والكيمياء والرياضيات كمواد مفروضة، بل نعيد هندستها برمجياً ونضعها تحت مشرط التحليل؛ لكي تتحول من نصوص صامتة في الكتب إلى ألعاب ممتعة وقت الملل!</b>
+            </p>
+        </div>
+        <div class="container">
+            <h2 class="main-title fade-element">لماذا صممتُ هذا الموقع؟</h2>
+            <p class="purpose-text fade-element">
+               <b> حتى أستطيع تبسيط العلوم المعقدة والتي يشتكي منها معظمنا وأجعلهم يحبونها، ولكن بطريقتي الخاصة.</b>
+            </p>
+        </div>
+                <div class="container">
+            <h2 class="main-title fade-element">ماذا ستجد هنا؟</h2>
+            <p class="content-text fade-element">
+               <b> ستجد كل أنواع العلوم من رياضيات وفيزياء إلى علم نفس واجتماع، بل ستجد كل شيء حرفياً، أُقَدِّمُ أي شيء يستفز فضولي وأود التعمق فيه، ثم أشرحه هنا بأسلوبي الخاص محولاً العلوم الجافة إلى قصص وألعاب يتسلى عليها المشاهد.</b>
+            </p>
+        </div>
+    </header>
+
+
+    
+    <!-- منطقة الدعوة لاتخاذ إجراء -->
+    <section class="main-title fade-element">
+        <div class="container">
+            <h2 class="cta-title fade-element">هل تريد البدء الآن؟</h2>
+            <p class="cta-text fade-element"><b>اضغط الزر أدناه لتدخل إلى الأقسام وتكتشف ما أقدمه.</b></p>
+            
+            <div class="cta-button-container fade-element">
+                <a href="{{ url_for('categories') }}" class="last_btn btn-primary"><b>تصفح الأقسام</b></a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="copy-right"> 
+        <div class = "container"> 
+        <p> 
+            <span class="eng-text"> © 2026 </span>
+            <b>جميع الحقوق محفوظة  <br> تم تطوير هذا الموقع بواسطة </b>
+            <span class="eng-text"> @1v3abdullah</span>
+        
+        </p>
+        </div>
+    </section>
+
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل العلوم</title>
+    <!-- ربط ملف التنسيق CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='categories.css') }}">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي للموقع -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('student_home_page') }}"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="{{ url_for('categories') }}" class="active"><b>الأقسام</b></a></li>
+                <li><a href="{{ url_for('about_the_developer2') }}"><b>عن المطور</b></a></li>
+                <li><a href="{{ url_for('student_profile') }}"><b>الملف الشخصي</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+<!-- الحاوية الرئيسية الكبرى التي تجمع البطاقات الثلاثة بجانب بعضها -->
+<div class="cards-container">
+
+    <!-- رياضيات-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <!-- ضع هنا مسار صورة الفيزياء عند توفرها -->
+            <img src="images/mathematics.png" alt="الرياضيات">
+        </div>
+        <div class="title-box" style="--bg-color: #B21B1B">
+            <h3>رياضيات</h3>
+        </div>
+    </a>
+
+    <!-- فيزياء -->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/physics.png" alt="فيزياء">
+        </div>
+        <div class="title-box" style="--bg-color: #1657D9">
+            <h3>فيزياء</h3>
+        </div>
+    </a>
+
+    <!-- كيمياء -->
+    <a href = "categories/chemistry/index.html" class="science-card">
+        <div class="image-box">
+            <img src="images/chemistry.png" alt="كيمياء">
+        </div>
+        <div class="title-box" style="--bg-color: #FFAA00">
+            <h3>كيمياء</h3>
+        </div>
+    </a>
+    
+    <!-- أحياء-->
+    <div class="science-card">
+        <div class="image-box">
+            <img src="images/biology.png" alt="أحياء">
+        </div>
+        <div class="title-box" style="--bg-color: #36D936">
+            <h3>أحياء</h3>
+        </div>
+    </div>
+
+    <!-- طب-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/medicine.png" alt="طب">
+        </div>
+        <div class="title-box" style="--bg-color: #5CE5E5">
+            <h3>طب</h3>
+        </div>
+    </a>
+
+    <!-- هندسة-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/engineering.png" alt="هندسة">
+        </div>
+        <div class="title-box" style="--bg-color: #4D7399">
+            <h3>هندسة</h3>
+        </div>
+    </a>
+
+    <!-- علوم الحاسوب-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/cs.png" alt="علوم الحاسوب">
+        </div>
+        <div class="title-box" style="--bg-color: #00AAFF">
+            <h3>علوم الحاسوب</h3>
+        </div>
+    </a>
+
+    <!-- جيولوجيا-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/geology.png" alt="جيولوجيا">
+        </div>
+        <div class="title-box" style="--bg-color: #806033">
+            <h3>جيولوجيا</h3>
+        </div>
+    </a>
+
+    <!-- جغرافيا-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/geography.png" alt="جغرافيا">
+        </div>
+        <div class="title-box" style="--bg-color: #47B26B">
+            <h3>جغرافيا</h3>
+        </div>
+    </a>
+
+    <!-- تاريخ-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/history.png" alt="تاريخ">
+        </div>
+        <div class="title-box" style="--bg-color: #B2A17D">
+            <h3>تاريخ</h3>
+        </div>
+    </a>
+
+    <!-- علم النفس-->
+    <div class="science-card">
+        <div class="image-box">
+            <img src="images/psychology.png" alt="علم النفس">
+        </div>
+        <div class="title-box" style="--bg-color: #D96CD9">
+            <h3>علم النفس</h3>
+        </div>
+    </div>
+
+    <!-- علوم البيئة-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/ecology.png" alt="علوم البيئة">
+        </div>
+        <div class="title-box" style="--bg-color: #1A801A">
+            <h3>علوم البيئة</h3>
+        </div>
+    </a>
+
+    <!-- اقتصاد-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/economics.png" alt="اقتصاد">
+        </div>
+        <div class="title-box" style="--bg-color: #D9AB21">
+            <h3>اقتصاد</h3>
+        </div>
+    </a>
+
+    <!-- علم الآثار-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/archaeology.png" alt="علم الآثار">
+        </div>
+        <div class="title-box" style="--bg-color: #A6714B">
+            <h3>علم الآثار</h3>
+        </div>
+    </a>
+
+    <!-- فلك-->
+    <div class="science-card">
+        <div class="image-box">
+            <img src="images/astronomy.png" alt="فلك">
+        </div>
+        <div class="title-box" style="--bg-color: #4B1466">
+            <h3>فلك</h3>
+        </div>
+    </div>
+
+    <!-- علم اجتماع-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/sociology.png" alt="علم اجتماع">
+        </div>
+        <div class="title-box" style="--bg-color: #D95782">
+            <h3>علم اجتماع</h3>
+        </div>
+    </a>
+
+    <!-- علوم أخرى-->
+    <a href="nothing/index-nothing.html" class="science-card">
+        <div class="image-box">
+            <img src="images/others.png" alt="علوم أخرى">
+        </div>
+        <div class="title-box" style="--bg-color: #999999">
+            <h3>علوم أخرى</h3>
+        </div>
+    </a>
+
+</div>
+
+
+
+
+
+        <section class="copy-right"> 
+        <div class = "container"> 
+        <p> 
+            <span class="eng-text"> © 2026 </span>
+            <b>جميع الحقوق محفوظة  <br> تم تطوير هذا الموقع بواسطة </b>
+            <span class="eng-text"> @1v3abdullah</span>
+        
+        </p>
+        </div>
+    </section>
+        <!-- ربط ملف الجافاسكريبت -->
+    <script src="animation.js"></script>
+</body>
+</html>

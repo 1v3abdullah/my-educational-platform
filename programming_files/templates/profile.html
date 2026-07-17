@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل العلوم</title>
+    <!-- ربط ملف التنسيق CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي للموقع -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home_page') }}"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="{{ url_for('categories') }}"><b>الأقسام</b></a></li>
+                <li><a href="{{ url_for('about_the_developer') }}"><b>عن المطور</b></a></li>
+                <li><a href="{{ url_for('profile') }}" class="active"><b>الملف الشخصي</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <div> <img class="bg" src="bg.png" alt="bg"></div> -->
+
+    <header class="welcome-section fade-element">
+        <div class="container">
+            <h1 class="main-title fade-element">لم تسجل دخولك بعد</h1>
+            <h2 class="main-title">
+                بإمكانك تسجيل الدخول إذا أردت للاستفادة من المنصة بشكل أكبر
+            </h2>
+        </div>
+    </header>
+
+
+    <section>
+        <div class="cta-button-container">
+            <a href="{{url_for ('login')}}" class="last_btn">تسجيل الدخول</a>
+        </div>
+    </section>
+
+
+    <section class="copy-right"> 
+        <div class = "container"> 
+        <p> 
+            <span class="eng-text"> © 2026 </span>
+            <b>جميع الحقوق محفوظة  <br> تم تطوير هذا الموقع بواسطة </b>
+            <span class="eng-text"> @1v3abdullah</span>
+        
+        </p>
+        </div>
+    </section>
+
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="animation.js"></script>
+</body>
+</html>

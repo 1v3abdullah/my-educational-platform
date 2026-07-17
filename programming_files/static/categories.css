@@ -1,0 +1,193 @@
+/* 1. إعادة ضبط مصنع المتصفح وتأمين مساحات الشاشة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* إنزال محتويات الصفحة بالكامل لمنع الاختفاء تحت الشريط الثابت */
+body {
+    padding-top: 90px;   /*  كل الكلمات والصور في الموقع ستنزل معاً بمقدار 90 بكسل  */
+    background-color: #aaf0c2; /* قاعدة رمادية مائلة للخضار الخفيف جداً */
+    background-image: 
+    radial-gradient(at 0% 0%, rgba(19, 102, 53, 0.12) 0px, transparent 50%),   /* بقعة خضراء حيوية في أعلى اليمين/اليسار */
+    radial-gradient(at 100% 100%, rgba(61, 230, 98, 0.08) 0px, transparent 50%), /* بقعة خضراء أعمق في الأسفل */
+    radial-gradient(at 50% 50%, rgba(240, 249, 244, 1) 0px, transparent 70%);     /* إضاءة بيضاء ناعمة في المنتصف للدمج */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* مرحلة حجز وتلوين الممر العلوي للموقع */
+.navbar {
+    background-color: hsl(120, 89%, 39%); /* خلفية خضراء هي لون الشريط */
+    width: 100%;               /* يمتد الممر على كامل عرض الشاشة من اليمين لليسار */
+    padding: 50px 0;           /* نعطي الممر حشواً داخلياً (20 بكسل فوق وتحت) ليصبح واسعاً ومريحاً */
+    position: fixed;           /* تجميد الشريط ومنعه من الصعود مع السكرول */
+    top: 0;                    /* لصق الشريط في النقطة الصفرية بأعلى الشاشة تماماً */
+    right: 0;                  /* تأمين التثبيت من جهة اليمين المتوافقة مع اتجاه RTL */
+    z-index: 1000;             /* درع حماية الطبقات: إجبار الشريط الأخضر على الطيران فوق كل النصوص والصور دائماً */
+}
+
+
+
+
+
+
+
+
+/*  مرحلة تحويل الكلمات إلى صف أفقي وتوزيعها */
+.nav-links {
+    display: flex;         /*  إجبار الكلمات الأربعة على الارتصاف في صف أفقي واحد */
+    justify-content: space-around; /* توزيع الكلمات الأربعة بمسافات متساوية ومتوازنة على عرض الشاشة */
+    list-style: none;     /* إزالة النقاط السوداء الافتراضية تماماً */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  مرحلة التحكم في حجم الكلمات ومظهرها */
+.nav-links li a {
+    font-size: 29px;       /* هذا هو السطر الحتمي لتكبير الخط بقيمة 29 بكسل صريحة */
+    color: #ffffff;        /* تحويل لون الكلمات إلى اللون الأبيض  */
+    text-decoration: none; /* إزالة الخط الافتراضي المزعج المتواجد أسفل الكلمات */
+    font-weight: bold;     /* جعل الخط عريضاً وجريئاً ليعكس قوة العنوان */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  الحاوية الكبرى لتوزيع البطاقات بجانب بعضها*/
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* توسيط البطاقات الثلاثة في منتصف الشاشة */
+    gap: 40px;                 /* مسافة أمان تفصل البطاقات عن بعضها */
+    margin: 60px auto;         /* مسافة علوية وسفلية واسعة الكتل */
+    margin-bottom: 120px;
+    max-width: 1400px;         /* الحد الأقصى لعرض منطقة البطاقات */
+    padding: 0 20px;
+
+}
+
+/*  هيكل البطاقة الواحدة (تجميع المربع الكبير والمستطيل الصغير) */
+.science-card {
+    width: 400px;              /* عرض البطاقة المطابق للرسم */
+    display: flex;
+    flex-direction: column;    /* ترتيب العناصر رأسياً (الصورة فوق والعنوان تحت) */
+    transition: transform 0.6s ease-out;
+    cursor: pointer;
+    box-shadow:0 0 5px  hsl(0, 0%, 55%);
+    text-decoration: none;
+
+}
+
+
+
+.science-card:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 17px  hsl(0, 0%, 55%);
+    filter: brightness(113%);
+    text-decoration: none;
+}
+
+/*  المربع الكبير المخصص للصورة المعبرة عن العلم */
+.science-card .image-box {
+    width: 100%;
+    height: 300px;             /* ارتفاع مربع ليكون متطابقاً مع الرسم السلكي */
+    border: 0.7px solid #000000; /* رسم الحدود السوداء الصريحة بدقة */
+    background-color: #ffffff; /* خلفية بيضاء نقية */
+    overflow: hidden;          /* قص أي جزء زائد من الصورة لتبقى داخل الحدود */
+    border-radius: 10px;
+    box-shadow:0 0 5px  hsl(0, 0%, 55%);
+    text-decoration: none;
+}
+
+/* ضبط سلوك الصورة لتملأ المربع بالكامل دون تشويه */
+.science-card .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* ملء المربع */
+    text-decoration: none;
+}
+
+/*  المستطيل الصغير السفلي الملتصق تماماً بالمربع الكبير */
+.science-card .title-box {
+    width: 100%;
+    height: 70px;              /* ارتفاع صغير ومناسب للعنوان */
+    border: 0.7px solid #000000; /* حدود سوداء صريحة */
+    border-top: none;          /*   حذف الحد العلوي لمنع حدوث خط سميك مزدوج عند الالتصاق */
+    background-color: var(--bg-color, #ffffff);
+    display: flex;
+    align-items: center;       /* توسيط العنوان رأسياً داخلياً */
+    justify-content: center;   /* توسيط العنوان أفقياً داخلياً */
+    border-radius: 10px;
+    box-shadow:0 0 5px  hsl(0, 0%, 55%);
+    text-decoration: none;
+}
+
+/* تنسيق خط العنوان داخل المستطيل الصغير */
+.science-card .title-box h3 {
+    font-size: 38px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.copy-right{
+    width: 100%;
+    border-top: 1px solid #000000;
+    padding: 25px;
+
+}
+
+
+.container{
+    font-size: 23px;
+    text-align: center;
+}
+
+
+
+.copy-right .eng-text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل العلوم</title>
+    <!-- ربط ملف التنسيق CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='student_profile.css') }}">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي للموقع -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('student_home_page') }}"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="{{ url_for('categories') }}"><b>الأقسام</b></a></li>
+                <li><a href="{{ url_for('about_the_developer2') }}"><b>عن المطور</b></a></li>
+                <li><a href="{{ url_for('student_profile') }}" class="active"><b>الملف الشخصي</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="profile-container">
+        <!-- القسم العلوي: الغلاف والصورة الشخصية -->
+        <div class="profile-header">
+            <div class="cover-image"></div>
+            <div class="profile-avatar-wrapper">
+                <div class="avatar-container">
+                    <!-- تعرض الحرف الأول من اسم المستخدم كصورة افتراضية مجانية -->
+                    <div class="avatar-placeholder">{{ username[0] | upper }}</div>
+                    <label type="button" class="edit-avatar-btn">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                </div>
+                <div class="user-meta">
+                    <h2>{{ username }}</h2>
+                    <b class="user-role"><i class="fas fa-graduation-cap"></i> حساب طالب نشط</b>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم البيانات الأساسية وإعدادات الحساب -->
+        <div class="profile-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-user-cog"></i> البيانات الأساسية والحساب</h3>
+                    <p class="card-subtitle"><b>قم بتحديث معلومات حسابك الشخصية وإعدادات الأمان إذا أردت</b></p>
+                </div>
+                
+                <form action="#" method="POST" class="profile-form">
+                    <!-- حقول البيانات الشخصية -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="username"><i class="fas fa-user"></i> اسم المستخدم</label>
+                            <input type="text" id="username" name="username" value="{{ username }}" required>
+                        </div>
+
+                    <hr class="divider">
+
+                    <!-- حقول تغيير كلمة المرور -->
+                    <div class="card-header-inner">
+                        <h4><i class="fas fa-lock"></i> تغيير كلمة المرور</h4>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="current_password">كلمة المرور الحالية</label>
+                            <input type="password" id="current_password" name="current_password" placeholder="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label for="new_password">كلمة المرور الجديدة</label>
+                            <input type="password" id="new_password" name="new_password" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <!-- زر الحفظ -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-check-circle"></i> حفظ التغييرات
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- قسم النشاط التعليمي والإحصائيات -->
+<div class="card learning-activity-card" style="margin-top: 24px;">
+    <div class="card-header">
+        <h3><i class="fas fa-chart-line"></i>النشاط التعليمي ومؤشرات الأداء</h3>
+        <p class="card-subtitle"><b>تابع تقدمك الدراسي وساعات التعلم التي أنجزتها داخل المنصة</b></p>
+    </div>
+
+    <!-- شبكة الإحصائيات السريعة (Stats Grid) -->
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+            <div class="stat-info">
+                <h4><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: normal;">3</span> كورسات</h4>
+                <p><b>قيد الدراسة حالياً</b></p>
+            </div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+            <div class="stat-info">
+                <h4><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: normal;">24</span> ساعة</h4>
+                <p><b>وقت الدراسة الكلي</b></p>
+            </div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-icon"><i class="fas fa-award"></i></div>
+            <div class="stat-info">
+                <h4><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: normal;">5</span> شارات </h4>
+                <p><b>إنجازات محققة</b></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-header-inner" style="margin-top: 30px;">
+        <h4><i class="fas fa-graduation-cap"></i> الكورسات المستمرة ونسبة التقدم</h4>
+    </div>
+
+    <!-- قائمة الكورسات الحالية (Courses List) -->
+    <div class="courses-progress-list">
+        <!-- كورس 1 -->
+        <div class="course-progress-item">
+            <div class="course-details">
+                <p class="course-title">أساسيات وتصميم واجهات المستخدم <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">(UI/UX)</span></p>
+                <span class="progress-percentage" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:normal;">75%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <!-- كورس 2 -->
+        <div class="course-progress-item">
+            <div class="course-details">
+                <p class="course-title">بناء تطبيقات الويب باستخدام <span class="progress-percentage" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e3b1e;">Python & Flask</span></p>
+                <span class="progress-percentage" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:normal;">40%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 40%; background: #f59e0b;"></div>
+            </div>
+        </div>
+
+        <!-- كورس 3 -->
+        <div class="course-progress-item">
+            <div class="course-details">
+                <p class="course-title">مقدمة في قواعد البيانات وإدارة <span class="progress-percentage" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e3b1e;">SQL</span></p>
+                <span class="progress-percentage" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:normal;">15%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 15%; background: #ef4444;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- قسم الشؤون المالية والاشتراكات -->
+<div class="card finance-card" style="margin-top: 24px;">
+    <div class="card-header">
+        <h3><i class="fas fa-wallet"></i> الشؤون المالية وإدارة الاشتراكات</h3>
+        <p class="card-subtitle"><b>تابع باقتك الحالية، تفاصيل تجديد الاشتراك، وسجل عمليات الدفع</b></p>
+    </div>
+
+    <!-- شبكة تفاصيل الاشتراك الحالي (Subscription Details) -->
+    <div class="finance-grid">
+        <div class="subscription-status-box">
+            <div class="sub-info">
+                <p class="badge-premium"><i class="fas fa-crown"></i> الباقة المميزة <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">(Premium)</span></p>
+                <h4>الباقة السنوية المفتوحة</h4>
+                <p class="sub-date">التجديد القادم: <strong style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">15 يوليو 2027</strong></p>
+            </div>
+            <div class="sub-action">
+                <button type="button" class="btn-manage-sub">إدارة الاشتراك</button>
+            </div>
+        </div>
+
+        <div class="payment-method-box">
+            <h4><i class="fas fa-credit-card"></i> طريقة الدفع المحفوظة</h4>
+            <div class="card-brand-details">
+                <i class="fab fa-cc-visa visa-icon"></i>
+                <div>
+                    <p class="card-number" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">•••• •••• •••• 4242</p>
+                    <p class="card-expiry" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">تنتهي في: 12/29</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-header-inner" style="margin-top: 30px;">
+        <h4><i class="fas fa-history"></i> سجل الفواتير والمعاملات</h4>
+    </div>
+
+    <!-- جدول سجل الفواتير المتجاوب (Invoices Table) -->
+    <div class="table-responsive">
+        <table class="invoices-table">
+            <thead>
+                <tr>
+                    <th>رقم الفاتورة</th>
+                    <th>التاريخ</th>
+                    <th>المبلغ</th>
+                    <th>الحالة</th>
+                    <th>الإجراء</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#INV-8902</td>
+                    <td>15 يوليو 2026</td>
+                    <td>$149.00</td>
+                    <td><span class="status-badge paid">مدفوعة</span></td>
+                    <td><button class="btn-download-invoice"><i class="fas fa-download"></i> PDF</button></td>
+                </tr>
+                <tr>
+                    <td>#INV-4321</td>
+                    <td>15 يوليو 2025</td>
+                    <td>$149.00</td>
+                    <td><span class="status-badge paid">مدفوعة</span></td>
+                    <td><button class="btn-download-invoice"><i class="fas fa-download"></i> PDF</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+    <section class="copy-right" style="margin-top: 25px;"> 
+        <div class = "container"> 
+        <p> 
+            <span class="eng-text"> © 2026 </span>
+            <b>جميع الحقوق محفوظة  <br> تم تطوير هذا الموقع بواسطة </b>
+            <span class="eng-text"> @1v3abdullah</span>
+        
+        </p>
+        </div>
+    </section>
+
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="animation.js"></script>
+</body>
+</html>
